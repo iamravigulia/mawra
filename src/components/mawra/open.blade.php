@@ -60,8 +60,12 @@
             <input class="fmt_input" type="text" name="question" placeholder="Question" style="width: 100%;">
         </div>
         <div>
-            <label class="fmt_label" for="">Audio</label>
-            <input class="fmt_input" type="file" accept="audio/*" name="audio" placeholder="audio" style="width: 100%;" required>
+            <label class="fmt_label" for="">English Audio</label>
+            <input class="fmt_input" type="file" accept="audio/*" name="audio" placeholder="english audio" style="width: 100%;" required>
+        </div>
+        <div>
+            <label class="fmt_label" for="">Spanish Audio</label>
+            <input class="fmt_input" type="file" accept="audio/*" name="audio_es" placeholder="spanish audio" style="width: 100%;" required>
         </div>
         <div>
             <label class="fmt_label" for="">Comment</label>
@@ -195,8 +199,12 @@
                 <input type="file" name="file" required>
             </div>
             <div style="display:block; padding:10px;">
-                <div style="font-size:12px;">Audio</div>
+                <div style="font-size:12px;">English Audio</div>
                 <input style="display:block;" type="file" name="audio[]" multiple accept="audio/*" placeholder="audio" required>
+            </div>
+            <div style="display:block; padding:10px;">
+                <div style="font-size:12px;">Spanish Audio</div>
+                <input style="display:block;" type="file" name="audio_es[]" multiple accept="audio/*" placeholder="audio" required>
             </div>
             <div style="width:100%;">
                 <button type="submit" style="display: block; padding:4px 20px; background:green; color:#fff; text-transform:uppercase; border-radius:4px;">submit</button>

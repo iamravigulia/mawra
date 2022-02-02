@@ -60,8 +60,14 @@
                         </div>{{-- //w-1/3 --}}
                         <div class="w-full px-4">{{-- w-1/3 --}}
                             <div class="my-2">
-                                <label class="bloc" for="">audio</label>
+                                <label class="bloc" for="">English Audio</label>
                                 <input class="w-full border border-gray-500 rounded-lg p-2" type="file" name="audio" accept="audio/*" placeholder="audio">
+                            </div>
+                        </div>{{-- //w-1/3 --}}
+                        <div class="w-full px-4">{{-- w-1/3 --}}
+                            <div class="my-2">
+                                <label class="bloc" for="">Spanish Audio</label>
+                                <input class="w-full border border-gray-500 rounded-lg p-2" type="file" name="audio_es" accept="audio/*" placeholder="audio">
                             </div>
                         </div>{{-- //w-1/3 --}}
                     </div>{{-- //flex-wrap --}}

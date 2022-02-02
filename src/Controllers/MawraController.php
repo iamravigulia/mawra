@@ -24,6 +24,15 @@ class MawraController extends Controller
             $audio->save();
             $mofQ->media_id = $audio->id;
         }
+        if($request->audio_es){
+            $audio_name_es = time().$request->audio_es->getClientOriginalName();
+            $audio_name_es = strtolower(str_replace(' ', '_', $audio_name_es));
+            $audio = new Media();
+            $request->audio_es->storeAs('public/answers', $audio_name_es);
+            $audio->url = 'answers/'.$audio_name_es;
+            $audio->save();
+            $mofQ->media_id_es = $audio->id;
+        }
         $mofQ->hint = $request->hint;
         $mofQ->save();
         /* answer1 */
@@ -113,6 +122,15 @@ class MawraController extends Controller
             $audio->save();
             $q->media_id = $audio->id;
         }
+        if($request->audio_es){
+            $audio_name_es = time().$request->audio_es->getClientOriginalName();
+            $audio_name_es = strtolower(str_replace(' ', '_', $audio_name_es));
+            $audio = new Media();
+            $request->audio_es->storeAs('public/answers', $audio_name_es);
+            $audio->url = 'answers/'.$audio_name_es;
+            $audio->save();
+            $q->media_id_es = $audio->id;
+        }
         $q->hint = $request->hint;
         // $q->level = $request->question_level;
         // $q->score = $request->question_score;
@@ -152,7 +170,7 @@ class MawraController extends Controller
             $uploadImage = explode(".", $valueImage->getClientOriginalName());
             if($uploadImage[0] == $question_image){
                 // dd($valueImage);
-                $audio_name = time().$valueImage->getClientOriginalName();
+                $audio_name = time().uniqid().$valueImage->getClientOriginalName();
                 $audio_name = strtolower(str_replace(' ', '_', $audio_name));
                 $media = new Media();
                 $valueImage->storeAs('public/question_images', $audio_name);
@@ -167,6 +185,7 @@ class MawraController extends Controller
         
         $file = $request->file('file');
         $audio = $request->file('audio');
+        $audio_es = $request->file('audio_es');
         // dd($file);
         // File Details
         $filename = time().$file->getClientOriginalName();
@@ -230,6 +249,7 @@ class MawraController extends Controller
                             "level"         => $importData[20],
                             "hint"          => $importData[21],
                             "audio"         => $importData[22],
+                            "audio_es"      => $importData[23],
                         );
                         // var_dump($insertData['answer1']); 
                         /*  */
@@ -249,6 +269,10 @@ class MawraController extends Controller
                             if (!empty($insertData['audio']) && $insertData['audio'] != '') {
                                 $media_id = $this->imagecsv($insertData['audio'], $audio);
                                 $fill_Q->media_id = $media_id;
+                            }
+                            if (!empty($insertData['audio_es']) && $insertData['audio_es'] != '') {
+                                $media_id_es = $this->imagecsv($insertData['audio_es'], $audio_es);
+                                $fill_Q->media_id_es = $media_id_es;
                             }
                             if($insertData['hint'] == '-'){
                             }else{
