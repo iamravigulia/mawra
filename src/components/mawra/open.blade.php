@@ -204,7 +204,7 @@
             </div>
             <div style="display:block; padding:10px;">
                 <div style="font-size:12px;">Spanish Audio</div>
-                <input style="display:block;" type="file" name="audio_es[]" multiple accept="audio/*" placeholder="audio" required>
+                <input style="display:block;" type="file" name="audio_es[]" multiple accept="audio/*" placeholder="audio">
             </div>
             <div style="width:100%;">
                 <button type="submit" style="display: block; padding:4px 20px; background:green; color:#fff; text-transform:uppercase; border-radius:4px;">submit</button>
