@@ -266,11 +266,11 @@ class MawraController extends Controller
                                     $fill_Q->difficulty_level_id = 3;
                                 }
                             }
-                            if (!empty($insertData['audio']) && $insertData['audio'] != '') {
+                            if (!empty($insertData['audio']) && $insertData['audio'] != '-') {
                                 $media_id = $this->imagecsv($insertData['audio'], $audio);
                                 $fill_Q->media_id = $media_id;
                             }
-                            if (!empty($insertData['audio_es']) && $insertData['audio_es'] != '') {
+                            if (!empty($insertData['audio_es']) && $insertData['audio_es'] != '-') {
                                 $media_id_es = $this->imagecsv($insertData['audio_es'], $audio_es);
                                 $fill_Q->media_id_es = $media_id_es;
                             }
